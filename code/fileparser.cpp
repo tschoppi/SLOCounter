@@ -44,7 +44,7 @@ namespace slocounter{
             bool linecomment = false;
 
             // Go through the line character by character
-            for(unsigned int i = 1; i < line.length() - 1; i++){
+            for(unsigned int i = 0; i < line.length() - 1; i++){
                 if(line[i] == '/'){
                     if(line[i+1] == '*'){
                         // Found "/*"
@@ -94,10 +94,10 @@ namespace slocounter{
                         std::string::size_type blockpos = line.find("/*", i);
                         std::string::size_type linepos = line.find("//", i);
                         if(blockpos != std::string::npos){
-                            i = blockpos;
+                            i = blockpos - 1;
                             continue;
                         } else if(linepos != std::string::npos){
-                            i = linepos;
+                            i = linepos - 1;
                             continue;
                         } else {
                             // Break out of line parsing to evaluate booleans
