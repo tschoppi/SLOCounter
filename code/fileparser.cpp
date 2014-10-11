@@ -5,6 +5,7 @@
 #include "fileparser.hpp"
 #include <fstream>
 #include <string>
+#include <iostream>
 // #include <regex>  // Available only in C++11
 
 namespace slocounter{
@@ -24,6 +25,10 @@ namespace slocounter{
         a line of code, whether it also contains a line comment.
         */
         std::ifstream file(filename);
+        if(! file.is_open()){
+            std::cerr << "Unable to open file " << filename << std::endl;
+            throw 666;
+        }
 
         // Switch to tell us if we are in a block comment
         bool blockcomment = false;
