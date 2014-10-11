@@ -39,3 +39,9 @@ double main_function(int thing, double other){
    that really aren't that important anyway.
 */
 ```
+
+# Known Bugs
+
+There is currently one known bug: When you include a start of a block comment
+inside ticks or apostrophes `"/*"`, it will interpret everything up to the next
+comment closing sign `*/` as part of a block comment.
