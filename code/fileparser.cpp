@@ -18,4 +18,16 @@ namespace slocounter{
 
         file.close();
     }
+
+    int Fileparser::getSLOC(){
+        return sloc;
+    }
+
+    int Fileparser::getComments(){
+        return comments;
+    }
+
+    int Fileparser::getCommentLines(){
+        return commentlines;
+    }
 }

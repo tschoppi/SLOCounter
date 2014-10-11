@@ -15,6 +15,9 @@ namespace slocounter{
     public:
         Fileparser(char *pfilename);
         void parsefile();
+        int getSLOC();
+        int getComments();
+        int getCommentLines();
     };
 }
 
