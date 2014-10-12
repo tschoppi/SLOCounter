@@ -3,13 +3,17 @@
 */
 
 #include <iostream>
+#include <iomanip>
 #include "fileparser.hpp"
 
 int main(int argc, char* argv[]){
     if(argc == 1){
         std::cerr << "Error: Not enough arguments." << std::endl << std::endl;
-        std::cerr << "Program usage:" << std::endl
-            << argv[0] << " file_1.cpp file_2.hpp ... file33.cpp" << std::endl;
+        std::cout << "Program usage:" << std::endl
+            << argv[0] << " file_1.cpp file_2.hpp ... file33.cpp"
+            << std::endl << std::endl;
+        std::cout << "Program output:" << std::endl
+            << "SLOC Commentcount Commentlines Filename" << std::endl;
         return 1;
     }
 
@@ -26,7 +30,10 @@ int main(int argc, char* argv[]){
         }
 
         // Nice display
-        std::cout << parser.getSLOC() << " " << parser.getComments() << " " << parser.getCommentLines() << " " << argv[i] << std::endl;
+        std::cout << std::setw(5) << parser.getSLOC() << " "
+            << std::setw(3) << parser.getComments() << " "
+            << std::setw(3) << parser.getCommentLines() << "   "
+            << argv[i] << std::endl;
 
         // Tally it up
         totcomm += parser.getComments();
@@ -35,8 +42,10 @@ int main(int argc, char* argv[]){
     }
 
     // Print totals
-    std::cout << std::endl << "Totals:" << std::endl;
-    std::cout << totcode << " " << totcomm << " " << totcomlines << std::endl;
+    std::cout << std::endl;
+    std::cout << std::setw(5) << totcode << " "
+        << std::setw(3) << totcomm << " "
+        << std::setw(3) << totcomlines << "   Total" << std::endl;
 
     return 0;
 }
