@@ -14,5 +14,6 @@ dirname="SLOCounter-v$1"
 archname="$dirname.tar.gz"
 
 cp -r code $dirname
+cp LICENSE $dirname/LICENSE
 tar -czf $archname $dirname
 rm -rf $dirname
