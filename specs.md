@@ -40,6 +40,15 @@ double main_function(int thing, double other){
 */
 ```
 
+If we execute the counter program, we'll get exactly these results:
+
+```bash
+$ SLOCounter example.cpp
+    4   5   7   example.cpp
+
+    4   5   7   Total
+```
+
 # Known Bugs
 
 There is currently one known bug: When you include a start of a block comment
